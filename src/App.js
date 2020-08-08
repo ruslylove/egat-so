@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Order from "./components/Order";
 import Container from "react-bootstrap/Container";
 import Switch from "./js/switching_order";
+import ProgressBar from "react-bootstrap/ProgressBar";
 
 import "./styles.css";
 
@@ -21,6 +22,7 @@ export default function App() {
     <div className="App">
       <h1>Switching Order [Demo]</h1>
       <Container>
+        <ProgressBar animated now={100 * (current / Switch.orders.length)} />
         {Switch.orders.map((m, i) => (
           <Order
             key={i}

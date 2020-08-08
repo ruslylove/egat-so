@@ -3,9 +3,18 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 
 export default function Order(props) {
   const [permit, setPermit] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleOnClick = () => {
+    handleShow();
+    setPermit(true);
+  };
 
   useEffect(() => {
     if (props.type !== "permission") setPermit(true);
@@ -44,7 +53,7 @@ export default function Order(props) {
               <Button
                 variant={props.action === "ON" ? "success" : "danger"}
                 disabled={props.current !== props.index - 1 || permit}
-                onClick={() => setPermit(true)}
+                onClick={() => handleOnClick()}
               >
                 อนุญาต {props.action}
               </Button>
@@ -52,6 +61,21 @@ export default function Order(props) {
           )}
         </Row>
       </Container>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Permissive Key Message</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          IoT permissive key status "
+          {props.action === "ON" ? "UNLOCKED" : "LOCKED"}" confirm{" "}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 }
