@@ -23,6 +23,7 @@ export default function Order(props) {
   return (
     <>
       <Container
+        fluid
         style={{
           backgroundColor: "white",
           paddingTop: "5px",
@@ -34,7 +35,7 @@ export default function Order(props) {
             {props.index}.
           </Col>
           <Col xs={2} md={2} lg={2}>
-            เวลา {props.time}
+            เวลา {props.time} น.
           </Col>
           <Col xs={5} md={5} lg={5}>
             {props.message}
@@ -67,8 +68,8 @@ export default function Order(props) {
           <Modal.Title>Permissive Key Message</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          IoT permissive key status "
-          {props.action === "ON" ? "UNLOCKED" : "LOCKED"}" confirm{" "}
+          IoT permissive key "{props.switch}" ยืนยันสถานะ "
+          {props.action === "ON" ? "UNLOCKED" : "LOCKED"}"
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
