@@ -2,3 +2,17 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+ul {
+  margin: 0;
+}
+
+.dropzone {
+  text-align: center;
+  padding: 20px;
+  border: 3px dashed #eeeeee;
+  background-color: #fafafa;
+  color: #bdbdbd;
+
+  margin-bottom: 20px;
+}
