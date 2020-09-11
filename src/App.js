@@ -4,14 +4,20 @@ import Container from "react-bootstrap/Container";
 import Switch from "./js/switching_order";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Navbar from "react-bootstrap/Navbar";
+import Image from "react-bootstrap/Image";
 
 import "./styles.css";
 import FileUploader from "./components/FileUploader";
+import FirstPage from "./views/FirstPage";
+
+import log from "loglevel";
 
 export default function App() {
   const [current, setCurrent] = useState(0);
   const [time, setTime] = useState([]);
   const [swo, setSwo] = useState();
+
+  log.setLevel("debug");
 
   const getTime = () => {
     let now = new Date().toLocaleTimeString("th-TH");
@@ -20,6 +26,8 @@ export default function App() {
   };
 
   const handleUpload = (content) => {
+    log.debug("load file sucessful");
+    console.log(log.getLoggers());
     setSwo(JSON.parse(content));
   };
 
@@ -29,7 +37,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <Container fluid="lg">
+      <Container fluid>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home">
             <img
@@ -39,10 +47,24 @@ export default function App() {
               height="50"
               className="d-inline-block align-top"
             />{" "}
-            EGAT Switching Order [Demo]
+            
+              งานวิจัย Automated Switching Order: การไฟฟ้าฝ่ายผลิตสำนักงานลำภูรา
+              จ.ตรัง [Demo]
+            
           </Navbar.Brand>
         </Navbar>
-        <FileUploader onUpload={handleUpload} />
+
+        {!swo && (
+          <div>
+            <Image
+              src="https://www.egat.co.th/en/images/about-egat/logo-egat-color.jpg"
+              alt="logo"
+              rounded
+            />
+            <FileUploader onUpload={handleUpload} />
+          </div>
+        )}
+
         {swo && (
           <ProgressBar
             animated={current < swo.orders.length}
