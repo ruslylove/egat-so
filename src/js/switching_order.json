@@ -1,4 +1,8 @@
 {
+  "template": "115kV NT-CYI #2",
+  "number": "631094",
+  "beforeWork": { "start": "1", "end": "28" },
+  "afterWork": { "start": "29", "end": "55" },
   "orders": [
     {
       "type": "common",

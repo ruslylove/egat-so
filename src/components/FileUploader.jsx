@@ -28,6 +28,8 @@ export default function FileUploader(props) {
 
   const onCancelClick = (e) => {
     //console.log(e);
+    setContent("");
+    setFileNames([]);
   };
 
   const onAcceptClick = (e) => {
