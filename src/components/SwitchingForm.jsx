@@ -6,12 +6,9 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 export default function SwitchingForm(props) {
-  
-
   return (
     <>
       <Container fluid>
-        
         <Form>
           <div style={{ textAlign: "end" }}>
             <Form.Group as={Row}>
@@ -21,6 +18,7 @@ export default function SwitchingForm(props) {
               <Col sm={10} md={3}>
                 <Form.Control
                   as="input"
+                  autoFocus
                   disabled={props.disabled}
                 ></Form.Control>
               </Col>{" "}

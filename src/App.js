@@ -17,6 +17,9 @@ import font from "./THSarabunNew-normal";
 
 import Button from "react-bootstrap/Button";
 
+import Zoom from "react-reveal/Zoom";
+import Fade from "react-reveal/Fade";
+
 export default function App() {
   const [current, setCurrent] = useState(0);
   const [time, setTime] = useState([]);
@@ -84,12 +87,16 @@ export default function App() {
 
         {!swo && (
           <div>
-            <Image
-              src="https://www.egat.co.th/en/images/about-egat/logo-egat-color.jpg"
-              alt="logo"
-              rounded
-            />
-            <FileUploader onUpload={handleUpload} />
+            <Zoom>
+              <Image
+                src="https://www.egat.co.th/en/images/about-egat/logo-egat-color.jpg"
+                alt="logo"
+                rounded
+              />
+            </Zoom>
+            <Fade top>
+              <FileUploader onUpload={handleUpload} />
+            </Fade>
           </div>
         )}
 
@@ -108,6 +115,7 @@ export default function App() {
                   id="formHorizontalRadios1"
                   checked={before}
                   onChange={handleChange}
+                  autoFocus
                 />
                 <Form.Check
                   type="radio"
@@ -150,11 +158,11 @@ export default function App() {
                 switch={m.switch}
               />
             ))}
-            <div style={{margin:"30px"}}>
-            <Button onClick={generatePDF}>ดาวน์โหลด Log [PDF]</Button>{" "}
-            <Button onClick={generatePDF} variant="secondary">
-              จบการปฏิบัติงาน
-            </Button>
+            <div style={{ margin: "30px" }}>
+              <Button onClick={generatePDF}>ดาวน์โหลด Log [PDF]</Button>{" "}
+              <Button onClick={generatePDF} variant="secondary">
+                จบ Switching
+              </Button>
             </div>
           </>
         )}
