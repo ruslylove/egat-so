@@ -68,6 +68,12 @@ export default function App() {
     doc.save("a4.pdf");
   };
 
+  const endSwitching = () => {
+    setSwo(null);
+    setCurrent(0);
+    setTime([]);
+  }
+
   return (
     <div className="App">
       <Container fluid="xl">
@@ -160,7 +166,7 @@ export default function App() {
             ))}
             <div style={{ margin: "30px" }}>
               <Button onClick={generatePDF}>ดาวน์โหลด Log [PDF]</Button>{" "}
-              <Button onClick={generatePDF} variant="secondary">
+              <Button onClick={endSwitching} variant="secondary">
                 จบ Switching
               </Button>
             </div>
