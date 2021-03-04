@@ -1,8 +1,8 @@
 {
   "template": "115kV NT-CYI #2",
   "number": "631094",
-  "beforeWork": { "start": "1", "end": "28" },
-  "afterWork": { "start": "29", "end": "55" },
+  "beforeWork": { "start": "1", "end": "14" },
+  "afterWork": { "start": "15", "end": "28" },
   "orders": [
     {
       "type": "common",
@@ -67,6 +67,62 @@
       "message": "สฟ.NT \"OFF\" Permissive Switch NT 7022",
       "switch": "NT 7022",
       "action": "OFF"
+    },
+    {
+      "type": "common",
+      "message": "ศูนย์ฯลำภูรา ได้รับแจ้ง หถต2-ส. (ประภจน์ ชูดวง) ปฏิบัติงานเสร็จ"
+    },
+    {
+      "type": "common",
+      "message": "ศูนย์ฯลำภูรา ตรวจสอบ Operator สฟ.NT.CYI พร้อมทำ Switching ด้วยความปลอดภัย"
+    },
+    {
+      "type": "common",
+      "message": "สฟ.NT.CYI ย้าย R3RCC ไปตำแหน่ง \"LOCAL\""
+    },
+    {
+      "type": "common",
+      "message": "สฟ.NT ตรวจสอบ Ground Cluster ปลดออกหมด"
+    },
+    {
+      "type": "common",
+      "message": "สฟ.CYI ตรวจสอบ Ground Cluster ปลดออกหมด"
+    },
+    {
+      "type": "common",
+      "message": "ปลด NT 7024G          ปลดป้าย \"ห้ามปลด\""
+    },
+    {
+      "type": "common",
+      "message": "ปลด CYI 7024GB          ปลดป้าย \"ห้ามปลด\""
+    },
+    {
+      "type": "common",
+      "message": "ปลด CYI 7024GA          ปลดป้าย \"ห้ามปลด\""
+    },
+    {
+      "type": "common",
+      "message": "ปลด CYI 7027GA          ปลดป้าย \"ห้ามปลด\""
+    },
+    {
+      "type": "common",
+      "message": "ปลด CYI 7026GA          ปลดป้าย \"ห้ามปลด\""
+    },
+    {
+      "type": "common",
+      "message": "ปลด NT 7024G            ปลดป้าย \"ห้ามปลด\""
+    },
+    {
+      "type": "common",
+      "message": "สฟ.CYI ตรวจสอบ CYI 7022 อยู่ในสภาพ \"ปลด\""
+    },
+    {
+      "type": "common",
+      "message": "สับ CYI 7027            ปลดป้าย \"ห้ามสับ\""
+    },
+    {
+      "type": "common",
+      "message": "สับ CYI 7024            ปลดป้าย \"ห้ามสับ\""
     }
   ]
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Order from "./components/Order";
 import Container from "react-bootstrap/Container";
-import Switch from "./js/switching_order";
+//import Switch from "./js/switching_order";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Navbar from "react-bootstrap/Navbar";
 import Image from "react-bootstrap/Image";
@@ -72,7 +72,9 @@ export default function App() {
     setSwo(null);
     setCurrent(0);
     setTime([]);
-  }
+    setBefore(true);
+    setAfter(false);
+  };
 
   return (
     <div className="App">
@@ -151,19 +153,47 @@ export default function App() {
         )}
         {swo && (
           <>
-            {swo.orders.map((m, i) => (
-              <Order
-                key={i}
-                index={i + 1}
-                message={m.message}
-                current={current}
-                handleClick={getTime}
-                time={time.length > i ? time[i] : "xx:xx:xx"}
-                type={m.type}
-                action={m.action}
-                switch={m.switch}
-              />
-            ))}
+            {swo.orders
+              .slice(
+                before ? swo.beforeWork.start - 1 : swo.afterWork.start - 1,
+                before ? swo.beforeWork.end : swo.afterWork.end
+              )
+              .map((m, i) => (
+                <Order
+                  key={i}
+                  index={
+                    i +
+                    Number.parseInt(
+                      before ? swo.beforeWork.start : swo.afterWork.start,
+                      10
+                    )
+                  }
+                  message={m.message}
+                  current={current}
+                  handleClick={getTime}
+                  time={
+                    time.length >
+                    i +
+                      Number.parseInt(
+                        before ? swo.beforeWork.start : swo.afterWork.start,
+                        10
+                      )-1
+                      ? time[
+                          i +
+                            Number.parseInt(
+                              before
+                                ? swo.beforeWork.start
+                                : swo.afterWork.start,
+                              10
+                            )-1
+                        ]
+                      : "xx:xx:xx"
+                  }
+                  type={m.type}
+                  action={m.action}
+                  switch={m.switch}
+                />
+              ))}
             <div style={{ margin: "30px" }}>
               <Button onClick={generatePDF}>ดาวน์โหลด Log [PDF]</Button>{" "}
               <Button onClick={endSwitching} variant="secondary">
